@@ -1,35 +1,19 @@
 import './App.css';
 import { useState } from 'react';
+import Challenge5 from './challenges/Challenge5';
 
 function App() {
-  const [first, setFirst] = useState(0);
+  
   const [show, setShow] = useState(false);
-  const [inputVal, setInputVal] = useState("");
+  
   const [counter, setCounter] = useState(0);
-  const form = {
-    name: '',
-    email: '',
-    number: ''
-  }
-
-  const updateFormDetails=(field,val)=>{
-    setFormData({...formData,
-    [field]:val.target.value})
-  }
-
-  const [formData, setFormData] = useState(form);
+  
 
   const UpdateToggle = () => {
     setShow(show => !show);
   };
 
-  const UpdateCounter = () => {
-    setFirst(first => first + 1);
-  };
-
-  const SubtractCounter = () => {
-    setFirst(first => first - 1);
-  };
+  
 
 
   const IncrementCounter = () => {
@@ -44,6 +28,14 @@ function App() {
   }
 
   function Counter() {
+    const [first, setFirst] = useState(0);
+    const UpdateCounter = () => {
+      setFirst(first => first + 1);
+    };
+  
+    const SubtractCounter = () => {
+      setFirst(first => first - 1);
+    };
     return (
       <div>
         <h4>
@@ -71,6 +63,7 @@ function App() {
   }
 
   function Challenge3() {
+    const [inputVal, setInputVal] = useState("");
     return (
       <div>
         <h4>3. Challenge: Input Field with Live Preview
@@ -107,38 +100,9 @@ function App() {
     );
   }
 
-  function Challenge5() {
-    return (
-      <div>
-        <h4>5. Challenge: Form with Multiple Inputs and Validation
-          Objective: Create a form with the following fields:
-
-          Name (Text Input)
-          Email (Text Input)
-          Age (Number Input)
-          Requirements:
-
-          Implement form validation:
-          Name should be required and have a minimum length of 3 characters.
-          Email should be in a valid email format.
-          Age should be a number and greater than or equal to 18.
-          Display error messages next to the respective input fields if the validation fails.
-          If the form is valid, display a success message below the form with the entered data.
-          Bonus:
-
-          Add a submit button that only becomes enabled when the form is valid.
-          Reset the form after successful submission.
-        </h4>
-        <p>Name <input style={{ marginLeft: '60px' }} value={formData.name} onChange={(e) => {
-          setFormData({ ...formData, name: e.target.value })
-        }}></input></p>
-        <p>Email <input style={{ marginLeft: '60px' }} value={formData.email}></input></p>
-        <p>Age <input style={{ marginLeft: '60px' }} value={formData.number}></input></p>
-
-        {formData.name}
-      </div>
-    );
-  }
+  // function Challenge5() {
+    
+  // }
 
   return (
     <div>
